@@ -1,0 +1,35 @@
+<main>
+    <header>
+        <h1>Tourist Services</h1>
+
+        <button routerLink="/home/dashboard/packages">
+            <i class="fa-solid fa-box-open"></i>
+            See packages
+        </button>
+    </header>
+
+    <section class="services-list">
+        @for(item of touristServices; track item.id) {
+            <div class="service">
+                <div class="image">
+                    <img [src]="getServiceImage(item.id)" [alt]=item.name />
+                </div>
+
+                <div class="data">
+                    <span><strong>{{ item.name.toUpperCase() }}</strong></span>
+                    <span><small>Go to {{ item.destination }}</small></span>
+                    <span><small>Date: {{ getParsedDate(item.date.toString()) }}</small></span>
+                    <span class="price"><strong>${{ item.price }}</strong></span>
+                    <span>
+                        <i 
+                            class="fa-solid fa-cart-plus" 
+                            matTooltip="Buy service"
+                            [routerLink]="'/home/buyService/' + item.id"
+                        >
+                        </i>
+                    </span>
+                </div>
+            </div>
+        }
+    </section>
+</main>

@@ -1,0 +1,41 @@
+<main>
+    <header>
+        <h1>Tour Packages</h1>
+
+        <button routerLink="/home">
+            <i class="fa-solid fa-arrow-left"></i>
+            Go home
+        </button>
+    </header>
+
+    <section class="services-list">
+        @for(item of tourPackages; track item.id) {
+            <div class="service">
+                <div class="image">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+
+                <div class="data">
+                    <span><strong>{{ item.name.toUpperCase() }}</strong></span>
+                    <span>
+                        <small>Some services are (2 of {{ item.touristServices.length }}):</small>
+                        <ul>
+                            @for(service of item.touristServices.slice(0, 2); track service.id) {
+                                <li>{{ service.name }}</li>
+                            }
+                        </ul>
+                    </span>
+                    <span class="price"><strong>${{ item.price }}</strong></span>
+                    <span>
+                        <i 
+                            class="fa-solid fa-cart-plus" 
+                            matTooltip="Buy package"
+                            [routerLink]="'/home/buyPackage/' + item.id"
+                        >
+                        </i>
+                    </span>
+                </div>
+            </div>
+        }
+    </section>
+</main>

@@ -1,0 +1,67 @@
+<main>
+    <header>
+        <h1>
+            <mat-icon 
+                class="back-icon" 
+                matTooltip="Back to employees"
+                routerLink="/admin/employees"
+            >
+                arrow_back
+            </mat-icon>
+
+            Job Titles List
+        </h1>
+    </header>
+
+    <article>
+        <section class="form">
+            <form [formGroup]="form" (ngSubmit)="submitForm()" autocomplete="off">
+                <app-text-input [form]="form" [formField]="formFields[0]" />
+
+                @if((form.get(formFields[0].name)!.invalid && form.get(formFields[0].name)!.touched) ||
+                    (submitted && form.get(formFields[0].name)!.invalid)) 
+                {
+                    <mat-error>You must enter a value</mat-error>
+                }
+
+                <button>
+                    <mat-icon>send</mat-icon>
+                    <span>Submit</span>
+                </button>
+            </form>
+        </section>
+
+        <section class="job-titles">
+            @for(item of jobTitles; track item.id) {
+                <div class="element">
+                    <i class="fa-solid fa-user"></i>
+
+                    <div class="separator"></div>
+
+                    <div class="data">
+                        <span><strong>ID: </strong> {{ item.id }} </span>
+                        <span [matTooltip]=item.name>
+                            <strong>Name: </strong> {{ item.name.length <= 7 ? item.name : item.name.slice(0, 7) + '...' }} 
+                        </span>
+                    </div>
+
+                    <div class="separator"></div>
+
+                    <div class="options">
+                        <button (click)="getJobTitleById(item.id)" [matTooltip]="'Edit ' + item.name">
+                            <i class="fa-solid fa-pencil"></i>
+                        </button>
+
+                        <button (click)="deleteJobTitle(item.id)" [matTooltip]="'Delete ' + item.name">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            <span *ngIf="jobTitles.length === 0">
+                <strong>No job titles registered</strong>
+            </span>
+        </section>
+    </article>
+</main>

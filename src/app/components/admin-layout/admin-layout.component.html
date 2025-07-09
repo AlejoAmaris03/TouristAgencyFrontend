@@ -1,0 +1,19 @@
+<main>
+    <nav>
+        <app-navbar [sidenav]="sidenav"/>
+    </nav>
+
+    <section>
+        <mat-sidenav-container>
+            <mat-sidenav mode="over">
+                <app-sidebar [options]="options" />
+            </mat-sidenav>
+
+            <mat-sidenav-content>
+                <div class="content" [ngClass]="sidebarStatus ? 'sidebar-open' : 'sidebar-closed'">
+                    <router-outlet />
+                </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </section>
+</main>

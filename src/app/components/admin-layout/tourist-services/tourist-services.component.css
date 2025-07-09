@@ -1,0 +1,168 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.separator {
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+
+article {
+    display: flex;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 80%;
+}
+
+.left-side {
+    width: 20%;
+    overflow-y: auto;
+}
+
+.right-side .buttons button {
+    font-size: 1rem;
+}
+
+.right-side .buttons .add-service-btn {
+    background-color: #0ab104;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background-color: #098a04;
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.services .service {
+    display: flex;
+    gap: 10px;
+    width: 190px;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #525151, #000000);
+    padding: 20px;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.service .data {
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.service .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.service .options input[type="checkbox"] {
+    transform: scale(1.5);
+    cursor: pointer;
+    accent-color: #15e90e;
+    color: #ffffff;
+}
+
+.service .update {
+    color: #2284e0;
+
+    &:hover {
+        color: #0e5faa;
+    }
+}
+
+.service .delete {
+    color: #ff0000;
+
+    &:hover {
+        color: #fa4242;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .right-side {
+        width: 75%;
+    }
+
+    .left-side {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .right-side {
+        width: 60%;
+    }
+
+    .left-side {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .right-side {
+        width: 50%;
+    }
+
+    .left-side {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .right-side,
+    .left-side {
+        width: 100%;
+    }
+
+    main {
+        flex-wrap: wrap;
+    }
+
+    .separator {
+        width: 100%;
+    }
+}

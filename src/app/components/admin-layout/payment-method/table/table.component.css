@@ -1,0 +1,62 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.no-data h1 {
+    margin: 0;
+}
+
+.mat-elevation-z8 {
+    overflow-y: auto;
+}
+
+table,
+.mat-elevation-z8 {
+    width: 100%;
+}
+
+th {
+    font-weight: bold;
+}
+
+th,
+td,
+tr {
+    font-family: 'Poppins', sans-serif;
+}
+
+table i {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+table button {
+    border: none;
+    background: none;
+}
+
+.fa-pencil {
+    color: #016fc9;
+
+    &:hover {
+        color: #108aee;
+    }
+}
+
+.fa-trash {
+    color: #ff0000;
+
+    &:hover {
+        color: #a70202;
+    }
+}
+
+mat-paginator {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,11 @@
+<div [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>{{ formField.label }}</mat-label>
+
+        <mat-select [formControlName]="formField.name">
+            @for(item of elements; let i = $index; track $index) {
+                <mat-option [value]="item">{{ elementNames[i] }}</mat-option>
+            }
+        </mat-select>
+      </mat-form-field>
+</div>

@@ -1,0 +1,52 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+hr {
+    border: 1px solid #ffffff;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+h4,
+ul {
+    margin: 0;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+ul > li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, .2);
+    }
+}
+
+i {
+    font-size: 20px;
+}
+
+.highlight {
+    background-color: rgba(255, 255, 255, .2);
+}

@@ -1,0 +1,30 @@
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ffffff;
+    background: none;
+    padding: 15px;
+    border: 1px solid #b8b4b4;
+    border-radius: 5px;
+    margin: 5px 0 20px 0;
+    cursor: pointer;
+
+    &:hover {
+        border: 1px solid #e0e3e2;
+    }
+    &:active {
+        background-color: rgba(0, 221, 221, .1);
+        border: 1px solid #00dddd;
+    }
+}
+
+input {
+    display: none;
+}

@@ -1,0 +1,123 @@
+:host {
+    --width: 230px;
+    --height: 200px;
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    font-size: small;
+    margin-bottom: 5px;
+}
+
+header button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #0085dd;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background-color: #016aaf;
+    }
+    &:active {
+        transform: scale(.95);
+    }
+}
+
+.services-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.service {
+    display: flex;
+    border-radius: 15px 0 0 15px;
+    background-color: rgba(255, 255, 255, .2);
+    width: calc(var(--width) * 1.9);
+    height: fit-content;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.data .price {
+    color: #00dddd;
+}
+
+.data i {
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 1.4rem;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        color: #2cdd00;
+    }
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--width);
+    height: var(--height);
+}
+
+.image i {
+    font-size: 10rem;
+}
+
+
+@media screen and (max-width: 480px) {
+    :host {
+        --width: 150px;
+        --height: 150px;
+    }
+
+    .data {
+        font-size: small;
+    }
+
+    .data i {
+        font-size: 1rem;
+    }
+
+    .image i {
+        font-size: 5rem;
+    }
+
+    ul {
+        font-size: smaller;
+    }
+}

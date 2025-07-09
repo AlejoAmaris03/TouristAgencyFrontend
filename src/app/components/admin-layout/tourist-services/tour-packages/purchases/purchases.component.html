@@ -1,0 +1,29 @@
+<main>
+    <header>
+        <mat-icon 
+            class="icon"
+            routerLink="/admin/services"
+            matTooltip="Back to services"
+        >
+            arrow_back
+        </mat-icon>
+        <h1>Purchases List</h1>
+    </header>
+
+    <section class="search-input">
+        <mat-form-field appearance="outline">
+            <mat-label>Search a purchase</mat-label>
+            <input 
+                id="value-to-search" 
+                matInput type="search" 
+                maxlength="30" 
+                autocomplete="off" 
+                (keyup)="searchPurchases($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </section>
+
+    <section class="employee-table">
+        <app-table />
+    </section>
+</main>

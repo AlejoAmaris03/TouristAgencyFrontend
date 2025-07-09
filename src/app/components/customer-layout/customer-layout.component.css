@@ -1,0 +1,42 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+mat-sidenav-container {
+    border-radius: 10px;
+    width: 100%;
+    background: none;
+}
+
+mat-sidenav {
+    width: 230px;
+    background-color: #181818;
+}
+
+.content {
+    border-radius: 10px;
+    background-color: #181818;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar-open {
+    width: calc(100vw - 305px);
+    margin-left: 25px;
+}
+
+.sidebar-closed {
+    width: 100%;
+    margin-left: 0;
+}

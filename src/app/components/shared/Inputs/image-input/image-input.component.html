@@ -1,0 +1,12 @@
+<div [formGroup]="form">
+    <label for="image">
+        <mat-icon>image</mat-icon>
+        <span id="imageName">{{ formField.label }}</span>
+    </label>
+    <input 
+        type="file" 
+        name="image"
+        id="image"
+        (change)="onSelectFile($event)"
+    >
+</div>

@@ -1,0 +1,142 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.back-icon {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.form {
+    height: fit-content;
+    width: fit-content;
+    background: none;
+    background-color: #353535;
+}
+
+.form button {
+    margin-top: 0;
+}
+
+mat-form-field input {
+    font-family: 'Poppins', sans-serif;
+}
+
+mat-error {
+    margin-top: -40px;
+}
+
+.element .separator {
+    height: 100%;
+    border: 1px solid #919191;
+}
+
+.job-titles {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 280px;
+    height: 70px;
+    background: linear-gradient(90deg, #525151, #000000);
+    transition: .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.07);
+    }
+}
+
+.element .fa-user {
+    font-size: 50px;    
+}
+
+.element .data,
+.element .options {
+    display: flex;
+    flex-direction: column;
+}
+
+.element .options {
+    gap: 10px;
+}
+
+.element button {
+    background: none;
+    border: none;
+}
+
+.element button i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.element button .fa-pencil {
+    color: #0d6be6;
+
+    &:hover {
+        color: #0355c0;
+    }
+}
+
+.element button .fa-trash {
+    color: #ff0000;
+
+    &:hover {
+        color: #b60101;
+    }
+}
+
+@media screen and (max-width: 695px) {
+    article {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .element {
+        padding: 5px 10px;
+    }
+
+    .element .fa-user {
+        font-size: 40px;
+    }
+}

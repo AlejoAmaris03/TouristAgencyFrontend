@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    height: 100%;
+}

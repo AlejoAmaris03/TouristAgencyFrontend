@@ -1,0 +1,27 @@
+<main>
+    <header>
+        <h1>Customers List</h1>
+
+        <button (click)="openForm()" matTooltip="Add customers">
+            <mat-icon>add</mat-icon>
+            <span>Add customer</span>
+        </button>
+    </header>
+
+    <section class="search-input">
+        <mat-form-field appearance="outline">
+            <mat-label>Search a customer</mat-label>
+            <input 
+                id="value-to-search" 
+                matInput type="search" 
+                maxlength="30" 
+                autocomplete="off" 
+                (keyup)="searchCustomer($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </section>
+
+    <section class="customers-table">
+        <app-table />
+    </section>
+</main>

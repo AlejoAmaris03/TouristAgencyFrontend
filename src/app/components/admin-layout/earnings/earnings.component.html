@@ -1,0 +1,37 @@
+<main>
+   <header>
+        <h1>
+            <mat-icon 
+                class="back-icon" 
+                matTooltip="Back to home"
+                routerLink="/admin"
+            >
+                arrow_back
+            </mat-icon>
+
+            Sales and Earnings
+        </h1>
+
+        <button (click)="openGraphs()">
+            <i class="fa-solid fa-graph"></i>
+            <span>Show graphs</span>
+        </button>
+    </header>
+
+    <section class="search-input">
+        <mat-form-field appearance="outline">
+            <mat-label>Search a sale</mat-label>
+            <input 
+                id="value-to-search" 
+                matInput type="search" 
+                maxlength="30" 
+                autocomplete="off" 
+                (keyup)="searchSale($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </section>
+
+    <section class="sale-table">
+        <app-table />
+    </section>
+</main>

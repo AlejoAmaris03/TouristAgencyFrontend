@@ -1,0 +1,61 @@
+<main>
+    <h2 mat-dialog-title>
+        <span>Purchase details</span>
+        <mat-icon 
+            class="close-icon"
+            matTooltip="Close" 
+            (click)="closeDetailsDialog()">close</mat-icon>
+    </h2>
+
+    <mat-dialog-content class="data">
+        <span class="title" *ngIf="purchaseDetails.touristServiceName">
+            <strong>Service: </strong> {{ purchaseDetails.touristServiceName }}
+        </span>
+
+        <span class="title" *ngIf="purchaseDetails.tourPackageName">
+            <strong>Package: </strong> {{ purchaseDetails.tourPackageName }}
+        </span>
+
+        <div class="info">
+            <span *ngIf="purchaseDetails.tourPackageName">
+                <strong>Services included:</strong>
+                <ul>
+                    <li *ngFor="let item of purchaseDetails.servicesIncluded">{{ item }}</li>
+                </ul>
+            </span>
+
+            <span class="service-data" *ngIf="purchaseDetails.touristServiceName">
+                <span><strong>Description: </strong> {{ purchaseDetails.description }} </span>
+                <span><strong>Destination: </strong> {{ purchaseDetails.destination }} </span>
+                <span><strong>Date: </strong> {{ parseDate(purchaseDetails.date.toString()) }} </span>
+            </span>
+
+            <span>
+                <strong>Date of sale: </strong>
+                <span>{{ parseDate(purchaseDetails.dateOfSale.toString()) }}</span>
+            </span>
+
+            <span>
+                <strong>Payment method: </strong>
+                <span>{{ purchaseDetails.paymentMethod }}</span>
+            </span>
+
+            <span>
+                <strong>Seller: </strong>
+                <span>{{ purchaseDetails.employeeName }}</span>
+            </span>
+
+            <span>
+                <strong>Price: </strong>
+                <span>${{ purchaseDetails.price }}</span>
+            </span>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-actions" align="end">
+        <button (click)="closeDetailsDialog()">
+            <mat-icon>check_circle</mat-icon>
+            <span>OK</span>
+        </button>
+    </mat-dialog-actions>
+</main>

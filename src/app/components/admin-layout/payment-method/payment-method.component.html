@@ -1,0 +1,27 @@
+<main>
+    <header>
+        <h1>Payment methods List</h1>
+
+        <button (click)="openForm()" matTooltip="Add payment method">
+            <mat-icon>add</mat-icon>
+            <span>Add payment method</span>
+        </button>
+    </header>
+
+    <section class="search-input">
+        <mat-form-field appearance="outline">
+            <mat-label>Search a payment method</mat-label>
+            <input 
+                id="value-to-search" 
+                matInput type="search" 
+                maxlength="30" 
+                autocomplete="off" 
+                (keyup)="searchPaymentMethod($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </section>
+
+    <section class="payment-method-table">
+        <app-table />
+    </section>
+</main>

@@ -1,0 +1,37 @@
+<main>
+    <h2>
+        <span>Earning graphs</span>
+        <mat-icon
+            class="close-icon" 
+            matTooltip="Close"
+            (click)="closeDialog()">close</mat-icon>
+    </h2>
+
+    <mat-dialog-content class="dialog-content">
+        <h3>Total: ${{ total }}</h3>
+        
+        <div class="graphs">
+            <header>
+                <span>
+                    <strong>Graph type</strong>
+                </span>
+
+                <mat-chip-listbox aria-label="Graph type">
+                    <mat-chip-option selected (click)="graphToBar()">Bar</mat-chip-option>
+                    <mat-chip-option (click)="graphToLine()">Line</mat-chip-option>
+                    <mat-chip-option (click)="graphToCircle()">Circle</mat-chip-option>
+                    <mat-chip-option (click)="graphToPie()">Pie</mat-chip-option>
+                </mat-chip-listbox>
+            </header>
+
+            <canvas id="chart">{{ chart }}</canvas>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-actions" align="end">
+        <button (click)="closeDialog()">
+            <mat-icon>check_circle</mat-icon>
+            <span>OK</span>
+        </button>
+    </mat-dialog-actions>
+</main>

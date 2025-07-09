@@ -1,0 +1,55 @@
+<main>
+    <h2 mat-dialog-title>
+        {{ data.name }}
+
+        <mat-icon
+            class="close-dialog" 
+            matTooltip="Close"
+            (click)="closeDetails()"
+        >clear_icon
+        </mat-icon>
+    </h2>
+
+    <mat-dialog-content class="service">
+        <section class="image">
+            <img [src]="getServiceImage()" [alt]="data.name">
+        </section>
+
+        <section class="info">
+            <span>
+                <strong>Name: </strong>
+                <span> {{ data.name }} </span>
+            </span>
+
+            <span>
+                <strong>Description: </strong>
+                <span> {{ data.description }} </span>
+            </span>
+
+            <span>
+                <strong>Destination: </strong>
+                <span> {{ data.destination }} </span>
+            </span>
+
+            <span>
+                <strong>Date: </strong>
+                <span> {{ data.date }} </span>
+            </span>
+
+            <span>
+                <strong>Price: </strong>
+                <span> ${{ data.price }} </span>
+            </span>
+
+            <span class="see-purchases-icon">
+                <mat-icon 
+                    class="icon" 
+                    matTooltip="See purchases"
+                    (click)="closeDetails()"
+                    [routerLink]="'/admin/services/purchases/' + data.id"
+                    >remove_red_eye</mat-icon>
+            </span>
+        </section>
+        
+    </mat-dialog-content>
+</main>

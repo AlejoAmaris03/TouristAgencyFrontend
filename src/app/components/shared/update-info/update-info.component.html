@@ -1,0 +1,145 @@
+<main>
+    <section class="form">
+        <header>
+            <h1>Update profile</h1>
+        </header>
+
+        <form [formGroup]="form" autocomplete="off">
+            <div class="field">
+                <div class="field-group">
+                    <app-number-input [formField]="formFields[0]" [form]="form" />
+
+                    @if((form.get(formFields[0].name)!.invalid && form.get(formFields[0].name)!.touched) ||
+                        (submitted && form.get(formFields[0].name)!.invalid)) 
+                    {
+                        <mat-error *ngIf="form.get(formFields[0].name)!.hasError('required')">You must enter a value</mat-error>
+                        <mat-error *ngIf="form.get(formFields[0].name)!.hasError('max')">DNI cannot exceed 10 digits</mat-error>
+                    }
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="field-group">
+                    <app-text-input [formField]="formFields[1]" [form]="form" />
+
+                    @if((form.get(formFields[1].name)!.invalid && form.get(formFields[1].name)!.touched) ||
+                        (submitted && form.get(formFields[1].name)!.invalid)) 
+                    {
+                        <mat-error>You must enter a value</mat-error>
+                    }
+                </div>
+
+                <div class="field-group">
+                    <app-text-input [formField]="formFields[2]" [form]="form" />
+
+                    @if((form.get(formFields[2].name)!.invalid && form.get(formFields[2].name)!.touched) ||
+                        (submitted && form.get(formFields[2].name)!.invalid)) 
+                    {
+                        <mat-error>You must enter a value</mat-error>
+                    }
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="field-group">
+                    <app-text-input [formField]="formFields[3]" [form]="form" />
+
+                    @if((form.get(formFields[3].name)!.invalid && form.get(formFields[3].name)!.touched) ||
+                        (submitted && form.get(formFields[3].name)!.invalid)) 
+                    {
+                        <mat-error *ngIf="form.get(formFields[3].name)!.hasError('required')">You must enter a value</mat-error>
+                        <mat-error *ngIf="form.get(formFields[3].name)!.hasError('pattern')">Email is not valid</mat-error>
+                    }
+                </div>
+            </div>
+
+            <!-- Customer fields -->
+            <div class="field" *ngIf="showCommonFields">
+                <div class="field-group">
+                    <app-text-input [formField]="formFields[4]" [form]="form" />
+
+                    @if((form.get(formFields[4].name)!.invalid && form.get(formFields[4].name)!.touched) ||
+                        (submitted && form.get(formFields[4].name)!.invalid)) 
+                    {
+                        <mat-error>You must enter a value</mat-error>
+                    }
+                </div>
+            </div>
+
+            <div class="field" *ngIf="showCommonFields">
+                <div class="field-group">
+                    <app-date-input [formField]="formFields[5]" [form]="form" />
+
+                    @if((form.get(formFields[5].name)!.invalid && form.get(formFields[5].name)!.touched) ||
+                        (submitted && form.get(formFields[5].name)!.invalid)) 
+                    {
+                        <mat-error class="calendar-error-msg">You must enter a value</mat-error>
+                    }
+                </div>
+
+                <div class="field-group">
+                    <app-select-input [formField]="formFields[6]" [form]="form" [elements]="countries" [elementNames]="countryNames" />
+
+                    @if((form.get(formFields[6].name)!.invalid && form.get(formFields[6].name)!.touched) ||
+                        (submitted && form.get(formFields[6].name)!.invalid))
+                    {
+                        <mat-error>You must select a value</mat-error>
+                    }
+                </div>
+            </div>
+
+            <div class="field" *ngIf="showCommonFields">
+                <div class="field-group">
+                    <app-number-input [formField]="formFields[7]" [form]="form" />
+
+                    @if((form.get(formFields[7].name)!.invalid && form.get(formFields[7].name)!.touched) ||
+                        (submitted && form.get(formFields[7].name)!.invalid)) 
+                    {
+                        <mat-error *ngIf="form.get(formFields[7].name)!.hasError('required')">You must enter a value</mat-error>
+                        <mat-error *ngIf="form.get(formFields[7].name)!.hasError('max')">Phone number cannot exceed 10 digits</mat-error>
+                    }
+                </div>
+            </div>
+            <!-- End customer fields -->
+
+            <!-- Employee fields -->
+            <div class="field" *ngIf="showEmployeeFields">
+                <div class="field-group">
+                    <app-text-input [formField]="formFields[8]" [form]="form" />
+                </div>
+
+                <div class="field-group">
+                    <app-number-input [formField]="formFields[9]" [form]="form" />
+                </div>
+            </div>
+            <!-- End employee fields -->
+
+            <div class="field">
+                <div class="field-group">
+                    <app-text-input [formField]="formFields[10]" [form]="form" />
+
+                    @if((form.get(formFields[10].name)!.invalid && form.get(formFields[10].name)!.touched) ||
+                        (submitted && form.get(formFields[10].name)!.invalid)) 
+                    {
+                        <mat-error>You must enter a value</mat-error>
+                    }
+                </div>
+
+                <div class="field-group">
+                    <app-password-input [formField]="formFields[11]" [form]="form" />
+
+                    @if((form.get(formFields[11].name)!.invalid && form.get(formFields[11].name)!.touched) ||
+                        (submitted && form.get(formFields[11].name)!.invalid)) 
+                    {
+                        <mat-error>You must enter a value</mat-error>
+                    }
+                </div>
+            </div>
+
+            <button (click)="onSubmit()">
+                <mat-icon>send</mat-icon>
+                <span>Submit</span>
+            </button>
+        </form>
+    </section>
+</main>

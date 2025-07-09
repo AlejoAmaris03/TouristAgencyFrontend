@@ -1,0 +1,125 @@
+<main>
+    <section>
+        <div class="statistics">
+            <div class="top">
+                <div class="statistic" routerLink="/admin/customers" matTooltip="See customers">
+                    <div class="values">
+                        <h1 id="customers-number"></h1>
+                        <h3>Customers</h3>
+                    </div>
+
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="statistic" routerLink="/admin/employees" matTooltip="See employees">
+                    <div class="values">
+                        <h1 id="employees-number"></h1>
+                        <h3>Employees</h3>
+                    </div>
+
+                    <i class="fa-solid fa-users-rays"></i>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="statistic" routerLink="/admin/services" matTooltip="See tourist services">
+                    <div class="values">
+                        <h1 id="services-number"></h1>
+                        <h3>Services</h3>
+                    </div>
+
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+
+                <div class="statistic" routerLink="/admin/home/earnings" matTooltip="See earnings">
+                    <div class="values">
+                        <h1 id="earnings-number"></h1>
+                        <h3>Sales earnings</h3>
+                    </div>
+
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="graphs">
+            @defer(on timer(800ms)) {
+                <app-graphs />
+            }
+            @loading {
+                <mat-spinner></mat-spinner>
+            }
+            @placeholder {
+                <mat-spinner></mat-spinner>
+            }
+        </div>
+
+        <div class="more">
+            <div class="table">
+                <table *ngIf="customers.length > 0">
+                    <caption>
+                        <h3>Last five customers registered</h3>
+                    </caption>
+
+                    <thead>
+                        <th>No.</th>
+                        <th>Customer</th>
+                        <th>DNI</th>
+                        <th>Nationality</th>
+                        <th>Phone number</th>
+                    </thead>
+
+                    <tbody>
+                        @for(item of customers; let i = $index; track $index) {
+                            <tr>
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ item.name }} {{ item.surname }}</td>
+                                <td>{{ item.dni }}</td>
+                                <td>{{ item.nationality }}</td>
+                                <td>{{ item.phoneNumber }}</td>                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <span *ngIf="customers.length === 0">
+                    <h1>No customers registered</h1>
+                </span>
+            </div>
+
+            <div class="table">
+                <table *ngIf="sales.length > 0">
+                    <caption>
+                        <h3>Last five sales registered</h3>
+                    </caption>
+
+                    <thead>
+                        <th>No.</th>
+                        <th>Customer</th>
+                        <th>Employee</th>
+                        <th>Date of Sale</th>
+                        <th>Service/Package</th>
+                        <th>Total</th>
+                    </thead>
+
+                    <tbody> 
+                        @for(item of sales; let i = $index; track $index) {
+                            <tr>
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ item.customerName }}</td>
+                                <td>{{ item.employeeName }}</td>
+                                <td>{{ item.dateOfSale }}</td>
+                                <td>{{ item.touristServiceName ? item.touristServiceName : item.tourPackageName }}</td>                                
+                                <td>{{ item.price }}</td>                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <span *ngIf="sales.length === 0">
+                    <h1>No sales registered</h1>
+                </span>
+            </div>
+        </div>
+    </section>
+</main>

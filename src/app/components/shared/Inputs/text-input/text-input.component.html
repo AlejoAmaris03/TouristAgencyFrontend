@@ -1,0 +1,6 @@
+<div [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>{{ formField.label }}</mat-label>
+        <input matInput maxlength="20" [formControlName]="formField.name">
+    </mat-form-field>
+</div>

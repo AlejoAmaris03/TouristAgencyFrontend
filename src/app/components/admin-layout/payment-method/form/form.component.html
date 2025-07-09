@@ -1,0 +1,35 @@
+<main>
+    <h2 mat-dialog-title>Payment method form</h2>
+
+    <mat-dialog-content class="form">
+        <form [formGroup]="form" autocomplete="off">
+            <div class="field">
+                <app-text-input [formField]="formFields[0]" [form]="form" />
+
+                @if((form.get(formFields[0].name)!.invalid && form.get(formFields[0].name)!.touched) ||
+                    (submitted && form.get(formFields[0].name)!.invalid)) 
+                {
+                    <mat-error>You must enter a value</mat-error>
+                }
+            </div>
+
+            <div class="field">
+                <app-number-input [formField]="formFields[1]" [form]="form" />
+
+                @if((form.get(formFields[1].name)!.invalid && form.get(formFields[1].name)!.touched) ||
+                    (submitted && form.get(formFields[1].name)!.invalid)) 
+                {
+                    <mat-error *ngIf="form.get(formFields[1].name)!.hasError('required')">You must enter a value</mat-error>
+                    <mat-error *ngIf="form.get(formFields[1].name)!.hasError('max')">Commission cannot exceed 50%</mat-error>
+                }
+            </div>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button (click)="submitForm()">
+            <mat-icon>send</mat-icon>
+            <span>Submit</span>
+        </button>
+    </mat-dialog-actions>
+</main>

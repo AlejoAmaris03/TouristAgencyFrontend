@@ -1,0 +1,100 @@
+<main>
+    <header>
+        <h1>Packages</h1>
+    </header>
+
+    <section 
+        class="add-service-option" 
+        matTooltip="Add tour package"
+        *ngIf="!showForm"
+        (click)="showFormFunction()"
+    >
+        <i class="add-icon fa-solid fa-add"></i>
+    </section>
+
+    <section class="add-service-form" *ngIf="showForm">
+        <div class="close">
+            <mat-icon (click)="closeForm()" matTooltip="Close">close</mat-icon>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+            <div class="field">
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    placeholder="Package name"
+                    maxlength="20" 
+                    formControlName="name"
+                >
+
+                @if((form.controls['name'].invalid && form.controls['name'].touched) ||
+                    (submitted && form.controls['name'].invalid)) 
+                {
+                    <mat-error>You must enter a value</mat-error>
+                }                
+            </div>
+
+            <button>
+                <mat-icon>add</mat-icon>
+                <span>Add package</span>
+            </button>
+        </form>
+    </section>
+
+    <section class="packages">
+        @for(item of tourPackages; let i = $index; track item.id) {
+            <div class="package">
+                <div class="data">
+                    <div class="name">
+                        <form [formGroup]="formToUpdateInfo[i]" (ngSubmit)="updateName(item.id, i)" autocomplete="off">
+                            <div class="field">
+                                <input 
+                                    type="text" 
+                                    name="nameToUpdate" 
+                                    [id]="'name-' + item.id" 
+                                    placeholder="Enter the name"
+                                    maxlength="20"
+                                    formControlName="name"
+                                >
+
+                                @if((formToUpdateInfo[i].controls['name'].invalid && formToUpdateInfo[i].controls['name'].touched) ||
+                                    (submittedToUpdate && formToUpdateInfo[i].controls['name'].invalid)) 
+                                {
+                                    <mat-error>You must enter a value</mat-error>
+                                }   
+                            </div>
+
+                            <button>
+                                <i class="fa-solid fa-pencil" matTooltip="Modify name"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="services">
+                        @for(service of item.touristServices; track service.id) {
+                            <div class="service">
+                                <i class="fa-solid fa-minus" matTooltip="Remove service" (click)="removeService(item.id, service.id)"></i>
+                                <span>{{ service.name }}</span>
+                            </div>
+                        }
+
+                        <i class="fa-solid fa-add" matTooltip="Add service" (click)="addServices(item)"></i>
+                    </div>
+
+                    <div class="price">
+                        <span>
+                            <strong>Total: </strong>
+                            $<span>{{ item.price }}</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="options">
+                    <i class="fa-solid fa-eye" matTooltip="See purchases" [routerLink]="'/admin/services/packages/purchases/' + item.id"></i>
+                    <i class="fa-solid fa-trash" matTooltip="Delete package" (click)="deletePackage(item.id)"></i>
+                </div>
+            </div>
+        }
+    </section>
+</main>

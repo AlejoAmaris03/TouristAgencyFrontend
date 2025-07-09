@@ -1,0 +1,73 @@
+<main>
+    <div class="mat-elevation-z8" [hidden]="purchases.length === 0">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                <td mat-cell *matCellDef="let row"> {{ row.touristServiceName ? 'Service' : 'Package' }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="service-package">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Service/Package </th>
+                <td mat-cell *matCellDef="let row"> {{ row.touristServiceName ? row.touristServiceName : row.tourPackageName }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Purchased date </th>
+                <td mat-cell *matCellDef="let row"> {{row.dateOfSale}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let row"> ${{row.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="info">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Info </th>
+                <td mat-cell *matCellDef="let row">
+                    <button>
+                        <i 
+                            (click)="seePurchaseDetails(row.id)" 
+                            class="fa-solid fa-eye" 
+                            [matTooltip]="row.touristServiceName ? 'See service info.' : 'See package info.'"
+                        ></i>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cancel">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cancel </th>
+                <td mat-cell *matCellDef="let row"> 
+                    <button>
+                        <i 
+                            class="fa-solid fa-trash"
+                            (click)="cancelPurchase(row.id)" 
+                            [matTooltip]="row.touristServiceName ? 'Cancel service' : 'Cancel package'"
+                        ></i>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter</td>
+            </tr>
+        </table>
+
+        <mat-paginator 
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            showFirstLastButtons
+            aria-label="Select page of purchases">
+        </mat-paginator>
+    </div>
+
+    <div class="no-data" *ngIf="purchases.length === 0">
+        <h1>No purchases found</h1>
+    </div>
+</main>

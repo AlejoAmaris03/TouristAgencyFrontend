@@ -1,0 +1,167 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+}
+header h1 {
+    margin: 0;
+}
+
+.add-service-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    border: 1px dashed #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, .1);
+    }
+}
+
+.add-service-option .add-icon {
+    font-size: 2rem;
+}
+
+.add-service-form {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    border-radius: 5px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.add-service-form .close {
+    text-align: end;
+    cursor: pointer;
+}
+
+.add-service-form form {
+    align-items: center;
+    gap: 0;
+}
+
+.add-service-form .field,
+.package .field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.add-service-form input,
+.package input {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    background: none;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, .7);
+    }
+}
+
+mat-error {
+    margin-top: 5px;
+    color: #ff3737;
+}
+
+.add-service-form button {
+    width: fit-content;
+    padding: 3px;
+    font-size: .8rem;
+}
+
+.packages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.packages button {
+    margin: 0;
+    background: none;
+    border: none;
+}
+
+.package {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.package .data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.package .name form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.package .name .fa-pencil,
+.package .service .fa-minus,
+.package .services .fa-add,
+.package .delete-option .fa-trash {
+    color: #0ba9e7;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.package .services {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.package .service {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.package .service span,
+.package .price {
+    font-size: .85rem;
+}
+
+.package .services .fa-add {
+    color: #0be730;
+    width: fit-content;
+}
+
+.package .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.package .options .fa-trash {
+    color: #ff3737;
+    cursor: pointer;
+}
+
+.package .options .fa-eye {
+    color: #04c70e;
+    cursor: pointer;
+}

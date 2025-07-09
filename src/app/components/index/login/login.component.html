@@ -1,0 +1,34 @@
+<main>
+    <section class="form">
+        <header>
+            <h1>Login</h1>
+        </header>
+
+        <form [formGroup]="form" autocomplete="off">
+            <div class="field">
+                <app-text-input [formField]="formFields[0]" [form]="form" />
+
+                @if((form.get(formFields[0].name)!.invalid && form.get(formFields[0].name)!.touched) ||
+                    (submitted && form.get(formFields[0].name)!.invalid)) 
+                {
+                    <mat-error>You must enter a value</mat-error>
+                }
+            </div>
+        
+            <div class="field">
+                <app-password-input [formField]="formFields[1]" [form]="form" />
+
+                @if((form.get(formFields[1].name)!.invalid && form.get(formFields[1].name)!.touched) ||
+                    (submitted && form.get(formFields[1].name)!.invalid)) 
+                {
+                    <mat-error>You must enter a value</mat-error>
+                }
+            </div>
+
+            <button (click)="onSubmit()">
+                <mat-icon>login</mat-icon>
+                <span>Login</span>
+            </button>
+        </form>
+    </section>
+</main>

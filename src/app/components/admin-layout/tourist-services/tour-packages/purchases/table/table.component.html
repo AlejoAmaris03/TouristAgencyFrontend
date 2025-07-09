@@ -1,0 +1,52 @@
+<main>
+    <div class="mat-elevation-z8" *ngIf="purchases.length > 0">
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="packageName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Package </th>
+                <td mat-cell *matCellDef="let row"> {{row.tourPackageName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="customerName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>
+                <td mat-cell *matCellDef="let row"> {{row.customerName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="employeeName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Seller </th>
+                <td mat-cell *matCellDef="let row"> {{row.employeeName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateOfSale">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of sale </th>
+                <td mat-cell *matCellDef="let row"> {{row.dateOfSale}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let row"> ${{row.price}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter</td>
+            </tr>
+        </table>
+
+        <mat-paginator 
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            showFirstLastButtons
+            aria-label="Select page of users">
+        </mat-paginator>
+    </div>
+
+    <div class="no-data" *ngIf="purchases.length === 0">
+        <h1>No buyers found</h1>
+    </div>
+</main>

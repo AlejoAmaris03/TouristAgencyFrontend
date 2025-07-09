@@ -1,0 +1,20 @@
+<main>
+    @for(item of touristServices; track item.id) {
+        <section class="card">
+            <div class="image">
+                <img [src]="getTouristServiceImageById(item.id)" [alt]=item.name>
+            </div>
+
+            <div class="body">
+                <strong class="name">{{ item.name.toUpperCase() }}</strong>
+                <strong class="price">${{ item.price }}</strong>
+
+                <small class="description">
+                    <span>{{ item.description }}</span>
+                </small>
+
+                <small class="date">{{ parseDate(item.date.toString()) }}</small>
+            </div>
+        </section>
+    }
+</main>

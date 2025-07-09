@@ -1,0 +1,92 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    border-bottom: 1px solid #242929;
+}
+
+h2 .close-icon {
+    cursor: pointer;
+}
+
+.dialog-bottom {
+    margin-top: 10px;
+    border-top: 1px solid #242929;
+}
+
+.error {
+    margin: 20px 0 5px 0;
+    text-align: center;
+}
+
+.form {
+    height: fit-content;
+    width: fit-content;
+    background: none;
+}
+
+.field {
+    display: flex;
+    gap: 10px;
+}
+
+.field-group {
+    width: 100%;
+}
+
+.calendar-error-msg {
+    margin-top: 0;
+}
+
+mat-form-field input {
+    font-family: 'Poppins', sans-serif;
+}
+
+mat-dialog-actions button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    background-color: #0ab104;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background-color: #098a04;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+
+@media screen and (max-width: 560px) {
+    .field {
+        flex-wrap: wrap;
+    }
+
+    .field-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form {
+        gap: 13px;
+    }
+}

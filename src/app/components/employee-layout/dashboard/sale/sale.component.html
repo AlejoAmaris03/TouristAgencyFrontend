@@ -1,0 +1,83 @@
+<main>
+    <h2 mat-dialog-title>
+        <span>Sale form</span>
+        <mat-icon 
+            matTooltip="Close"
+            class="close-icon"
+            (click)="closeForm()"
+        >
+            close
+        </mat-icon>
+    </h2>
+
+    <mat-dialog-content class="form">
+        <div class="error" *ngIf="(submitted && form.hasError('serviceOrPackageRequired'))">
+            <mat-error>You must select a package o a service</mat-error>
+        </div>
+
+        <form [formGroup]="form" autocomplete="off">
+            <div class="field">
+                <div class="field-group">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select a service</mat-label>
+                        <mat-select (selectionChange)="onSelectService()" formControlName="touristService">
+                            @for(item of touristServices; track item.id) {
+                                <mat-option [value]="item">{{ item.name }}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="field-group">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select a package</mat-label>
+                        <mat-select (selectionChange)="onSelectPackage()" formControlName="tourPackage">
+                            @for(item of tourPackages; track item.id) {
+                                <mat-option [value]="item">{{ item.name }}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="field-group">
+                    <app-select-input 
+                        [formField]="formFields[0]" 
+                        [form]="form" 
+                        [elements]="paymentMethods" 
+                        [elementNames]="paymentMethodNames"
+                    />
+
+                    @if((form.get(formFields[0].name)!.invalid && form.get(formFields[0].name)!.touched) ||
+                        (submitted && form.get(formFields[0].name)!.invalid)) 
+                    {
+                        <mat-error>You must select a value</mat-error>
+                    }
+                </div>
+
+                <div class="field-group">
+                    <app-select-input 
+                        [formField]="formFields[1]" 
+                        [form]="form" 
+                        [elements]="customers" 
+                        [elementNames]="customerNames"
+                    />
+
+                    @if((form.get(formFields[1].name)!.invalid && form.get(formFields[1].name)!.touched) ||
+                        (submitted && form.get(formFields[1].name)!.invalid)) 
+                    {
+                        <mat-error>You must select a value</mat-error>
+                    }
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-bottom" align="end">
+        <button (click)="submitForm()">
+            <mat-icon>send</mat-icon>
+            <span>Submit</span>
+        </button>
+    </mat-dialog-actions>
+</main>

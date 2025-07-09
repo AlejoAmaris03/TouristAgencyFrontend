@@ -1,0 +1,56 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 .close-dialog {
+    cursor: pointer;
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.service {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.info .see-purchases-icon {
+    margin-top: 5px;
+}
+
+.info .see-purchases-icon .icon {
+    color: #039ad6;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        color: #05acee;
+    }
+}

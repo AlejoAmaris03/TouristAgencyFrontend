@@ -1,0 +1,126 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+section {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h1,
+h3 {
+    margin: 0;
+}
+
+.statistics,
+.statistic,
+.top,
+.bottom,
+.graphs,
+.more,
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top,
+.bottom {
+    gap: 20px;
+    width: 100%;
+}
+
+.statistics,
+.more {
+    gap: 20px;
+}
+
+.statistic,
+.table {
+    padding: 20px;
+    gap: 35px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #353535;
+}
+
+.statistic {
+    cursor: pointer;
+}
+
+.graphs {
+    background-color: #353535;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+i {
+    font-size: 70px;
+}
+
+.table h1 {
+    font-size: 1.2rem;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    max-width: 100%;
+}
+
+th, 
+td {
+    border: 1px solid #ffffff;
+    padding: 5px;
+}
+
+@media screen and (max-width: 1300px) {
+    .more {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .statistics {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    table {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .top,
+    .bottom {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    i {
+        font-size: 50px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .statistic {
+        gap: 15px;
+    }
+}

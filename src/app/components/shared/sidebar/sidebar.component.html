@@ -1,0 +1,21 @@
+<main>
+    <header>
+        <h4>{{ currentUser.name }} {{ currentUser.surname }}</h4>
+    </header>
+
+    <hr>
+    
+    <section>
+        <ul>
+            @for(item of options; track $index) {
+                <li [routerLink]="item.link" routerLinkActive="highlight">
+                    <span>
+                        <i [class]="item.icon"></i>
+                    </span>
+
+                    <a>{{ item.name}}</a>
+                </li>
+            }
+        </ul>
+    </section>
+</main>

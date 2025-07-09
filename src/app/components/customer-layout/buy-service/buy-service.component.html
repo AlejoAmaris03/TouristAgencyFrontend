@@ -1,0 +1,152 @@
+<main>
+    <div class="go-back-btn" *ngIf="touristServiceId">
+        <mat-icon 
+            class="go-back-icon"
+            matTooltip="Go back" 
+            routerLink="/home"
+        >
+            arrow_back
+        </mat-icon>
+    </div>
+
+    <section class="services">
+        <div class="content">
+            <h2>
+                <mat-icon>shopping_cart</mat-icon>
+                <span>Buy a service</span>
+            </h2>
+
+            <div class="error" *ngIf="(submitted && form.hasError('serviceOrPackageRequired'))">
+                <mat-error>You must select a service o a package</mat-error>
+            </div>
+
+            <div class="forms">
+                <div class="service">
+                    <form [formGroup]="form" autocomplete="off">
+                        <div class="field">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Select a service</mat-label>
+                                <mat-select (selectionChange)="onSelectService()" formControlName="touristService">
+                                    @for(item of touristServices; track item.id) {
+                                        <mat-option [value]="item">{{ item.name }}</mat-option>
+                                    }
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="field">
+                            <app-select-input 
+                                [form]="form" [formField]="formFields[0]" 
+                                [elements]="employees" [elementNames]="employeeNames"
+                            />
+
+                            <div *ngIf="(form.controls['employee'].invalid && form.controls['employee'].touched) || 
+                                (submitted && form.controls['employee'].invalid)">
+                                <mat-error>You must select a value</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <app-select-input 
+                                [form]="form" [formField]="formFields[1]" 
+                                [elements]="paymentMethods" [elementNames]="paymentMethodNames"
+                            />
+
+                            <div *ngIf="(form.controls['paymentMethod'].invalid && form.controls['paymentMethod'].touched) || 
+                                (submitted && form.controls['paymentMethod'].invalid)">
+                                <mat-error>You must select a value</mat-error>
+                            </div>
+                        </div>
+                    </form>
+
+                    <fieldset class="service-info" *ngIf="showDetails">
+                        <legend *ngIf="showServiceInfo">Service details</legend>
+                        <legend *ngIf="showPackageInfo">Package details</legend>
+
+                        @let service = touristServices[serviceSelected];
+                        @let package = tourPackages[packageSelected];
+
+                        <span class="name" *ngIf="showServiceInfo">{{ service?.name?.toUpperCase() }}</span>
+                        <span class="name" *ngIf="showPackageInfo">{{ package?.name?.toUpperCase() }}</span>
+
+                        <div class="more-details" *ngIf="showServiceInfo">
+                            <div class="side">
+                                <img [src]="getServiceImage(service.id)" alt="">
+                            </div>
+
+                            <div class="side left">
+                                <span><small>{{ service?.description }}</small></span>
+                                <span><small>Go to {{ service?.destination }}</small></span>
+                                <span><small>{{ getParsedDate(service.date.toString()) }}</small></span>
+                                <span><small>${{ service?.price }}</small></span>
+                            </div>
+                        </div>
+
+                        <div class="more-details" *ngIf="showPackageInfo">
+                            <div class="side">
+                                <span><small>
+                                    <strong>Services included</strong>
+                                </small></span>
+                                <ul>
+                                    <li *ngFor="let services of package.touristServices">{{ services.name }}</li>
+                                </ul>
+                                <strong><small>
+                                    Total: ${{ package.price }}
+                                </small></strong>
+                            </div>
+
+                            <div class="side left">
+                                <span>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="packages" [ngClass]="!showDetails ? 'set-height' : ''">
+                    <header *ngIf="tourPackagesToShow.length !== 0">
+                        <h4>Recommended packages</h4>
+                    </header>
+
+                    <div class="all-packages"> 
+                        @for(item of tourPackagesToShow; track item.id) {
+                            <div 
+                                class="package" 
+                                (click)="onSelectPackage(item.id)" 
+                                [class.select-package]="scalePackageSelectedId === item.id"
+                                [matTooltip]="scalePackageSelectedId === item.id ? 'Unselect package' : 'Select package'"
+                                *ngIf="tourPackagesToShow.length !== 0"
+                            >  
+                                <span>
+                                    <strong>{{ item.name.toUpperCase() }}</strong>
+                                </span>
+
+                                <span>
+                                    <small>Services included:</small>
+                                    <ul>
+                                        <li *ngFor="let service of item.touristServices">{{ service.name }}</li>
+                                    </ul>
+                                </span>
+
+                                <span><small>
+                                    <strong>Total: ${{ item.price }}</strong>
+                                </small></span>
+                            </div>
+                        }   
+                    </div>
+
+                    <span class="no-packages" *ngIf="tourPackagesToShow.length === 0">
+                        <mat-icon>question_mark</mat-icon>
+                        <strong><small>No packages found</small></strong>
+                    </span>
+                </div>
+            </div>
+
+            <button (click)="submitForm()">
+                <mat-icon>shopping_cart</mat-icon>
+                <span>Get service/package</span>
+            </button>
+        </div>
+    </section>
+</main>

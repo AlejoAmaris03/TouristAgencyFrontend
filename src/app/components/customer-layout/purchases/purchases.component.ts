@@ -1,0 +1,26 @@
+import { Component, inject, ViewChild } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { TableComponent } from "./table/table.component";
+
+@Component({
+  selector: 'app-purchases',
+  imports: [
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    TableComponent
+  ],
+  templateUrl: './purchases.component.html',
+  styleUrl: './purchases.component.css'
+})
+
+export default class PurchasesComponent {
+  @ViewChild(TableComponent) private tableComponent!: TableComponent;
+
+  protected searchPurchase(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.tableComponent.filterPurchases(value);
+  }
+}

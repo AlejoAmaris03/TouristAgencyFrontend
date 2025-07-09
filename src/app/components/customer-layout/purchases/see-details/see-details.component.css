@@ -1,0 +1,72 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #002929;
+}
+
+h2 .close-icon {
+    cursor: pointer;
+}
+
+.data {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.data .title {
+    font-size: 1.2rem;
+}
+
+.data .info {
+    display: flex;
+    flex-direction: column;
+} 
+
+.data ul {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.data .service-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-actions {
+    margin-top: 10px;
+    border-top: 1px solid #002929;
+}
+
+.dialog-actions button{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00e200;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background-color: #01b601;
+    }
+    &:active {
+        transform: scale(.9);
+    }
+}

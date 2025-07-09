@@ -1,0 +1,97 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: .2s ease-in-out;
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+header .add-employee-btn {
+    padding: 7px 10px;
+    font-size: 15px;
+    gap: 5px;
+    background-color: #0ab104;
+
+    &:hover {
+        background-color: #098a04;
+    }
+}
+
+header .add-job-title-btn {
+    padding: 7px 10px;
+    font-size: 15px;
+    gap: 5px;
+    background-color: #0463b1;
+
+    &:hover {
+        background-color: #107dd6;
+    }
+}
+
+header .buttons {
+    display: flex;
+    gap: 15px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.search-input .field {
+    width: 100%;
+}
+
+.search-input {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.search-input button {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 7px 0 0 0;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, .2);
+
+    &:hover {
+        background-color: #353535;
+    }
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-form-field input {
+    font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+    header button span {
+        display: none;
+    }
+}

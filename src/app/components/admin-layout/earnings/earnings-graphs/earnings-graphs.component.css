@@ -1,0 +1,61 @@
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid #002929;
+}
+
+h2 .close-icon {
+    cursor: pointer;
+}
+
+.dialog-content {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+}
+
+.dialog-content .graphs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dialog-actions {
+    border-top: 1px solid #002929;
+    margin-top: 10px;
+}
+
+mat-dialog-actions button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    background-color: #0ab104;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000000;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background-color: #098a04;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}

@@ -1,0 +1,64 @@
+<main>
+    <article class="right-side">
+        <section class="buttons">
+            <button class="add-service-btn" (click)="openForm()">
+                <mat-icon>add</mat-icon>
+                <span>Add service</span>
+            </button>
+        </section>
+
+        <section class="services">
+            @for(item of touristServices; track item.id) {
+                <div class="service">
+                    <div class="data">
+                        <span [matTooltip]=item.name>
+                            <strong>Name: </strong> {{ item.name.length > 14 ? item.name.slice(0, 14) + '...' : item.name }} 
+                        </span>
+                        <span [matTooltip]=item.description>
+                            <strong>Description: </strong> {{ item.description.length > 7 ? item.description.slice(0, 7) + '...' : item.description }} 
+                        </span>
+                        <span [matTooltip]=item.destination>
+                            <strong>Destination: </strong> {{ item.destination.length > 6 ? item.destination.slice(0, 6) + '...' : item.destination }} 
+                        </span>
+                        <span><strong>Date: </strong> {{ item.date }} </span>
+                        <span><strong>Price: </strong> ${{ item.price }} </span>
+                    </div>
+    
+                    <div class="options">
+                        <button (click)="updateService(item.id)">
+                            <mat-icon class="update" [matTooltip]="'Update ' + item.name">edit</mat-icon>
+                        </button>
+    
+                        <button (click)="deleteTouristService(item.id)">
+                            <mat-icon class="delete" [matTooltip]="'Delete ' + item.name">delete</mat-icon>
+                        </button>
+
+                        <button (click)="openServiceDetails(item.id)">
+                            <mat-icon class="update" matTooltip="Open details">info</mat-icon>
+                        </button>
+    
+                        <button>
+                            <input 
+                                type="checkbox" 
+                                name="service" 
+                                [matTooltip]="'Select ' + item.name"
+                                (change)="onClickCheckbox($event, item)"
+                                [id]="'service-' + item.id" 
+                            >
+                        </button>
+                    </div>
+                </div>
+            }
+
+            <span *ngIf="touristServices.length === 0">
+                <strong>No tourist services registered</strong>
+            </span>
+        </section>
+    </article>
+
+    <div class="separator"></div>
+
+    <section class="left-side">
+        <app-tour-packages />
+    </section>
+</main>

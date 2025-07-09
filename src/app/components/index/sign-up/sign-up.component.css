@@ -1,0 +1,43 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100vw;
+}
+
+h1 {
+    margin: 0;
+}
+
+.form {
+    height: fit-content;
+    width: fit-content;
+}
+
+.field {
+    display: flex;
+    gap: 10px;
+}
+
+.field-group {
+    width: 100%;
+}
+
+.calendar-error-msg {
+    margin-top: 0;
+}
+
+mat-form-field input {
+    font-family: 'Poppins', sans-serif;
+}
+
+@media screen and (max-width: 560px) {
+    .field {
+        flex-wrap: wrap
+    }
+
+    form {
+        gap: 13px;
+    }
+}
