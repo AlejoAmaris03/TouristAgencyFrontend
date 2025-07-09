@@ -38,8 +38,11 @@ Here are some images of the project in action:
 - 🏠 Home Page
 ![image](https://github.com/user-attachments/assets/f785b513-b595-42ce-acf8-2a5ed1e955c7)
 
-- 🛠️ Admin Dashboard - Service Management
+- 🛠️ Admin Dashboard
 ![Admin dashboard](https://github.com/user-attachments/assets/ddd50b80-ebe1-4e04-b559-aa8574a78a89)
+
+- Service/Package management
+![image](https://github.com/user-attachments/assets/dffcd71f-9d3b-4831-81f2-c544a6af1223)
 
 
 ## 🚀 Getting Started
