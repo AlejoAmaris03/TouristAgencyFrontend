@@ -1,60 +1,60 @@
-# TourismAgencyFrontend
+# 🌍 Tourist Agency Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+This is the frontend application for the **Tourist Agency Management System**, built with **Angular**. It connects to a Spring Boot backend to allow users (customers and employees) to browse, purchase and manage tourism services and packages.
 
-## Development server
+> 🔗 Backend available here: [Tourist Agency Backend (Spring Boot)](https://github.com/AlejoAmaris03/TouristAgencyBackend)
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 📌 Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- 👤 User authentication (JWT)
+  - Roles: `Customer`, `Employee`, `Admin`
+- 🧳 View and buy tourism **services** and **packages**
+- 🛒 Purchase history for customers
+- 🛠️ Admin panel to manage services and packages
+- 🔒 Route guards based on roles
+- 📲 Responsive design
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ⚙️ Tech Stack
 
-```bash
-ng generate component component-name
-```
+- **Angular 19+**
+- **TypeScript**
+- **RxJS**
+- **Angular Router**
+- **HttpClient** (for API integration)
+- **SweetAlert2/Toastr** for feedback alerts
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📁 Project Structure
+![image](https://github.com/user-attachments/assets/a59c515d-662d-4c20-940a-5232505f5af9)
 
-## Building
+## 🚀 Getting Started
 
-To build the project run:
+### Prerequisites
 
-```bash
-ng build
-```
+- Node.js 18+
+- Angular CLI
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Installation
 
-## Running unit tests
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/AlejoAmaris03/TouristAgencyFrontend.git
+   cd TouristAgencyFrontend-main
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. Install dependencies
+   ```bash
+   npm install
 
-```bash
-ng test
-```
+3. Run the dev server
+   ```bash
+   ng serve
 
-## Running end-to-end tests
+4. Navigate to http://localhost:4200/ in your browser.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# TouristAgencyFrontend
+5. **Backend Connection**
+- Make sure your backend Spring Boot app is running at http://localhost:8080.
