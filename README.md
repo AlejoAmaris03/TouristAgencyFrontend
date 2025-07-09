@@ -29,8 +29,15 @@ This is the frontend application for the **Tourist Agency Management System**, b
 
 ---
 
+### 🖼️ Screenshots
+Here are some images of the project in action:
+![image](https://github.com/user-attachments/assets/f785b513-b595-42ce-acf8-2a5ed1e955c7)
+
+
+
+
 ## 📁 Project Structure
-![image](https://github.com/user-attachments/assets/a59c515d-662d-4c20-940a-5232505f5af9)
+![Home Page](https://github.com/user-attachments/assets/a59c515d-662d-4c20-940a-5232505f5af9)
 
 ## 🚀 Getting Started
 
